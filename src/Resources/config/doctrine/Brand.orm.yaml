@@ -1,4 +1,4 @@
-App\Entity\Brand:
+Ecolos\SyliusBrandPlugin\Entity\Brand:
   id:
     id:
       type: integer
@@ -12,10 +12,10 @@ App\Entity\Brand:
       nullable: true
   oneToMany:
     images:
-      targetEntity: App\Entity\BrandImage
+      targetEntity: Ecolos\SyliusBrandPlugin\Entity\BrandImage
       mappedBy: owner
       orphanRemoval: true
       cascade:
         - all
-  table: app_brand
+  table: ecolos_sylius_brand_plugin_brand
   type: entity

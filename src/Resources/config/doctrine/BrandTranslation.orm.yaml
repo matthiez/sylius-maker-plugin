@@ -1,4 +1,4 @@
-App\Entity\BrandTranslation:
+Ecolos\SyliusBrandPlugin\Entity\BrandTranslation:
   id:
     id:
       type: integer
@@ -11,5 +11,5 @@ App\Entity\BrandTranslation:
     address:
       type: string
       nullable: true
-  table: app_brand_translation
+  table: ecolos_sylius_brand_plugin_brand_translation
   type: entity
