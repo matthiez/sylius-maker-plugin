@@ -1,5 +1,5 @@
 {
-  "name": "ecolos/brand-plugin",
+  "name": "ecolos/sylius-brand-plugin",
   "type": "sylius-plugin",
   "description": "Brand management for Sylius applications.",
   "keywords": ["shop", "ecommerce", "address", "brand", "maker"],
