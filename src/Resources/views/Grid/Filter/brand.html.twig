@@ -1,0 +1,10 @@
+{% form_theme form 'SyliusUiBundle:Form:theme.html.twig' %}
+
+<div class="ui segment">
+    <form id="filter_brands" class="ui loadable form" method="get" action="{{ path('sylius_shop_product_index', {'slug': app.request.attributes.get('slug')}) }}">
+        {{ form_row(form) }}
+        <button class="ui primary button">OK</button>
+    </form>
+</div>
+
+

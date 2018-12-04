@@ -1,0 +1,12 @@
+App\Entity\BrandImage:
+  type: entity
+  table: app_brand_image
+  manyToOne:
+    owner:
+      targetEntity: App\Entity\Brand
+      inversedBy: images
+      joinColumn:
+        name: owner_id
+        nullable: false
+        onDelete: CASCADE
+        referencedColumnName: id

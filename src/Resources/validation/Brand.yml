@@ -1,0 +1,4 @@
+App\Entity\Brand:
+  properties:
+    images:
+        - Valid: ~

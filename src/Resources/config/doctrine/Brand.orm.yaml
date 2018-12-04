@@ -1,0 +1,21 @@
+App\Entity\Brand:
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+    slug:
+      type: string
+      nullable: true
+  oneToMany:
+    images:
+      targetEntity: App\Entity\BrandImage
+      mappedBy: owner
+      orphanRemoval: true
+      cascade:
+        - all
+  table: app_brand
+  type: entity

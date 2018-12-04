@@ -1,0 +1,62 @@
+services:
+  Ecolos\SyliusBrandPlugin\Command\SlugifyBrandsCommand:
+    public: true
+    tags: ["console.command"]
+
+  Ecolos\SyliusBrandPlugin\Service\SlugifyBrands:
+    public: true
+    arguments:
+      - '@ecolos_sylius_brand_plugin.repository.brand'
+      - '@ecolos_sylius_brand_plugin.manager.brand'
+
+  Ecolos\SyliusBrandPlugin\Repository\BrandRepository:
+    tags: ['doctrine.repository_service']
+
+  Ecolos\SyliusBrandPlugin\Repository\BrandTranslationRepository:
+    tags: ['doctrine.repository_service']
+
+  ecolos_sylius_brand_plugin.brand.form.type:
+    class: Ecolos\SyliusBrandPlugin\Form\Type\BrandType
+    tags:
+      - { name: form.type }
+    arguments: ['%ecolos_sylius_brand_plugin.model.brand.class%', ['sylius']]
+
+  ecolos_sylius_brand_plugin.brand_translation.form.type:
+    class: Ecolos\SyliusBrandPlugin\Form\Type\BrandTranslationType
+    tags:
+      - { name: form.type }
+    arguments: ['%ecolos_sylius_brand_plugin.model.brand_translation.class%', ['sylius']]
+
+  ecolos_sylius_brand_plugin.form.extension.type.brand:
+    class: Ecolos\SyliusBrandPlugin\Form\Extension\BrandTypeExtension
+    tags:
+      - { name: form.type_extension, extended_type: App\Form\Type\BrandType }
+
+  ecolos_sylius_brand_plugin.form.type.brand_filter:
+    class: Ecolos\SyliusBrandPlugin\Form\Type\Filter\BrandFilterType
+    arguments:
+      - "@ecolos_sylius_brand_plugin.repository.brand"
+    tags:
+      - { name: form.type , alias: app_brand}
+
+  ecolos_sylius_brand_plugin.form.type.brand_choice:
+    class: Ecolos\SyliusBrandPlugin\Form\Type\BrandChoiceType
+    arguments:
+      - "@ecolos_sylius_brand_plugin.repository.brand"
+    tags:
+      - { name: form.type , alias: app_brand_choice }
+
+  ecolos_sylius_brand_plugin.brand_bundle.form.type.brand_image:
+    class: Ecolos\SyliusBrandPlugin\Form\Type\BrandImageType
+    tags:
+      - { name: form.type }
+    arguments: ['%ecolos_sylius_brand_plugin.model.brand_image.class%']
+
+  ecolos_sylius_brand_plugin.grid.filter.brands:
+    class: Ecolos\SyliusBrandPlugin\Grid\Filter\BrandFilter
+    tags:
+      - name: sylius.grid_filter
+        type: brands
+        form_type: App\Form\Type\Filter\BrandFilterType
+    arguments:
+      - "@ecolos_sylius_brand_plugin.repository.brand"

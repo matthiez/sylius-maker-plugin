@@ -1,0 +1,15 @@
+sylius_resource:
+  resources:
+    ecolos_sylius_brand_plugin.brand:
+      driver: doctrine/orm
+      classes:
+        model: Ecolos\SyliusBrandPlugin\Entity\Brand
+        form: Ecolos\SyliusBrandPlugin\Form\Type\BrandType
+      translation:
+        classes:
+          model: Ecolos\SyliusBrandPlugin\Entity\BrandTranslation
+          form: Ecolos\SyliusBrandPlugin\Form\Type\BrandTranslationType
+    ecolos_sylius_brand_plugin.brand_image:
+      classes:
+        model: Ecolos\SyliusBrandPlugin\Entity\BrandImage
+        form: Ecolos\SyliusBrandPlugin\Form\Type\BrandImageType

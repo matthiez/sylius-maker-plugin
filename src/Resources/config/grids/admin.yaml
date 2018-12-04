@@ -1,0 +1,31 @@
+sylius_grid:
+  grids:
+    app_admin_brand:
+      driver:
+        name: doctrine/orm
+        options:
+          class: Ecolos\SyliusBrandPlugin\Entity\Brand
+      fields:
+        name:
+          type: string
+          label: sylius.ui.name
+        slug:
+          type: string
+          label: app.ui.slug
+        description:
+          type: string
+          label: sylius.ui.description
+          sortable: translation.description
+        address:
+          type: string
+          label: sylius.ui.address
+          sortable: translation.address
+      actions:
+        main:
+          create:
+            type: create
+        item:
+          update:
+            type: update
+          delete:
+            type: delete

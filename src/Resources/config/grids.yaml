@@ -1,0 +1,2 @@
+imports:
+  - { resource: "@EcolosSyliusBrandPlugin/Resources/config/grids/admin.yaml" }
