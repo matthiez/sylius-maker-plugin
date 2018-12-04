@@ -1,0 +1,14 @@
+ecolos_sylius_brand_plugin_admin_brand:
+  resource: |
+    alias: ecolos_sylius_brand_plugin.brand
+    section: admin
+    templates: SyliusAdminBundle:Crud
+    redirect: update
+    grid: ecolos_sylius_brand_plugin_admin_brand
+    vars:
+        all:
+            templates:
+                form: Brand\_form.html.twig
+        index:
+            icon: 'file image outline'
+  type: sylius.resource

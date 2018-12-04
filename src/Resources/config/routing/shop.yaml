@@ -1,0 +1,18 @@
+brand_list:
+  path:
+    de_DE: /de_DE/marken
+  methods: [GET]
+  defaults:
+    _controller: ecolos_sylius_brand_plugin_admin_brand.controller.brand:indexAction
+    _sylius:
+      template: "Brand/index.html.twig"
+      repository:
+        method: findAll
+brand_show:
+  path:
+    de_DE: /de_DE/marken/{slug}
+  methods: [GET]
+  defaults:
+    _controller: ecolos_sylius_brand_plugin_admin_brand.controller.brand:showAction
+    _sylius:
+      template: "Brand/show.html.twig"

@@ -60,3 +60,14 @@ services:
         form_type: App\Form\Type\Filter\BrandFilterType
     arguments:
       - "@ecolos_sylius_brand_plugin.repository.brand"
+
+
+  ecolos_sylius_brand_plugin.listener.images_upload:
+    class: Sylius\Bundle\CoreBundle\EventListener\ImagesUploadListener
+    parent: sylius.listener.images_upload
+    autowire: true
+    autoconfigure: false
+    public: false
+    tags:
+      - { name: kernel.event_listener, event: ecolos_sylius_brand_plugin.brand.pre_create, method: uploadImages }
+      - { name: kernel.event_listener, event: ecolos_sylius_brand_plugin.brand.pre_update, method: uploadImages }

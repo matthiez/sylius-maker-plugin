@@ -1,0 +1,7 @@
+ecolos_sylius_brand_plugin_admin:
+  resource: "@EcolosSyliusBrandPlugin/Resources/config/routing/admin.yml"
+  prefix: /admin
+
+ecolos_sylius_brand_plugin_shop:
+  resource: "@EcolosSyliusBrandPlugin/Resources/config/routing/shop.yml"
+  prefix: /{_locale}
