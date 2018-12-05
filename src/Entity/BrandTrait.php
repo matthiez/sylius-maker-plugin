@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Form\Extension;
+namespace Ecolos\SyliusBrandPlugin\Entity;
 
 use Ecolos\SyliusBrandPlugin\Entity\Brand;
 
