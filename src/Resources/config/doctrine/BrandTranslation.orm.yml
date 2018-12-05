@@ -1,0 +1,15 @@
+Ecolos\SyliusBrandPlugin\Entity\BrandTranslation:
+  fields:
+    address:
+      nullable: true
+      type: string
+    description:
+      nullable: true
+      type: string
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  table: ecolos_brand_translation
+  type: entity

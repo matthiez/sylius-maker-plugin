@@ -40,8 +40,7 @@ class BrandFilterType extends AbstractType
                         return $arr;
                     }, []),
                 "multiple" => true,
-                "label" => false,
-                'attr' => ['class' => 'geeggee']
+                "label" => false
             ]
         );
     }
@@ -55,6 +54,6 @@ class BrandFilterType extends AbstractType
     }
 
     public function getBlockPrefix(): string {
-        return 'app_brands_filter';
+        return 'ecolos_sylius_brand_plugin_brands_filter';
     }
 }

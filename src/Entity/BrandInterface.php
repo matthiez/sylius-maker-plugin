@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andre
- * Date: 20.11.18
- * Time: 11:21
- */
+declare(strict_types=1);
 
 namespace Ecolos\SyliusBrandPlugin\Entity;
 

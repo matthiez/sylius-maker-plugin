@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ecolos\SyliusBrandPlugin\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class BrandType extends AbstractResourceType
 {
@@ -23,15 +24,13 @@ class BrandType extends AbstractResourceType
                 'label' => 'sylius.form.product.slug',
                 'disabled' => null !== $builder->getData()->getSlug(),
             ])
-            ->add('images', VichImageType::class, [
-                'label' => 'sylius.form.product.images'
-            ]);
+        ;
     }
 
     /**
      * {@inheritdoc}
      */
     public function getBlockPrefix() {
-        return 'app_brand';
+        return 'ecolos_sylius_brand_plugin_brand';
     }
 }

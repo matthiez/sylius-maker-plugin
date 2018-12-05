@@ -1,0 +1,19 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block metatags %}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ 'ecolos_sylius_brand_plugin.brands' | trans }}</h1>
+
+    <div class="ui grid mt-1">
+        {% for brand in brands %}
+
+            <div class="four wide column">
+                <div class="ui center aligned segment">
+                    <a href="{{ path('brand_show', { slug: brand.getSlug() }) }}">{{ brand.getName() }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

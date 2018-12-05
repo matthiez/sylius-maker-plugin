@@ -52,6 +52,6 @@ final class BrandChoiceType extends AbstractType
     }
 
     public function getBlockPrefix(): string {
-        return 'app_brand_choice';
+        return 'ecolos_sylius_brand_plugin_brand_choice';
     }
 }

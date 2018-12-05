@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ecolos\SyliusBrandPlugin\Service;
 
-use App\Entity\BrandInterface;
+use Ecolos\SyliusBrandPlugin\Entity\BrandInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;

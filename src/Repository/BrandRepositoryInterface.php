@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andre
- * Date: 20.11.18
- * Time: 11:20
- */
+declare(strict_types=1);
 
 namespace Ecolos\SyliusBrandPlugin\Repository;
 
-use App\Entity\Brand;
+use Ecolos\SyliusBrandPlugin\Entity\Brand;
 
 /**
  * @method Brand|null find($id, $lockMode = null, $lockVersion = null)

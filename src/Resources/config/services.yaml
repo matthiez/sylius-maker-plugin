@@ -46,12 +46,6 @@ services:
     tags:
       - { name: form.type , alias: ecolos_sylius_brand_plugin_brand_choice }
 
-  ecolos_sylius_brand_plugin.brand_bundle.form.type.brand_image:
-    class: Ecolos\SyliusBrandPlugin\Form\Type\BrandImageType
-    tags:
-      - { name: form.type }
-    arguments: ['%ecolos_sylius_brand_plugin.model.brand_image.class%']
-
   ecolos_sylius_brand_plugin.grid.filter.brands:
     class: Ecolos\SyliusBrandPlugin\Grid\Filter\BrandFilter
     tags:
@@ -60,14 +54,3 @@ services:
         form_type: Ecolos\SyliusBrandPlugin\Form\Type\Filter\BrandFilterType
     arguments:
       - "@ecolos_sylius_brand_plugin.repository.brand"
-
-
-  ecolos_sylius_brand_plugin.listener.images_upload:
-    class: Sylius\Bundle\CoreBundle\EventListener\ImagesUploadListener
-    parent: sylius.listener.images_upload
-    autowire: true
-    autoconfigure: false
-    public: false
-    tags:
-      - { name: kernel.event_listener, event: ecolos_sylius_brand_plugin.brand.pre_create, method: uploadImages }
-      - { name: kernel.event_listener, event: ecolos_sylius_brand_plugin.brand.pre_update, method: uploadImages }

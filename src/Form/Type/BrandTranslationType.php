@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ecolos\SyliusBrandPlugin\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
@@ -14,13 +16,14 @@ class BrandTranslationType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('address', TextareaType::class)
-            ->add('description', TextareaType::class);
+            ->add('description', TextareaType::class)
+        ;
     }
 
     /**
      * {@inheritdoc}
      */
     public function getBlockPrefix() {
-        return 'app_brand_translation';
+        return 'ecolos_sylius_brand_plugin_brand_translation';
     }
 }

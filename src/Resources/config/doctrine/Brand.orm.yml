@@ -1,0 +1,14 @@
+Ecolos\SyliusBrandPlugin\Entity\Brand:
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+    slug:
+      type: string
+      nullable: true
+  table: ecolos_brand_brand
+  type: entity #mappedSuperclass

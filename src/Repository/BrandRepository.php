@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ecolos\SyliusBrandPlugin\Repository;
 
-use App\Entity\Brand;
+use Ecolos\SyliusBrandPlugin\Entity\Brand;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -17,33 +19,4 @@ class BrandRepository extends ServiceEntityRepository implements BrandRepository
     public function __construct(RegistryInterface $registry) {
         parent::__construct($registry, Brand::class);
     }
-
-//    /**
-//     * @return AppIngredient[] Returns an array of AppIngredient objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?AppIngredient
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

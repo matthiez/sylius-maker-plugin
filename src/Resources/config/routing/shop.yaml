@@ -3,9 +3,9 @@ brand_list:
     de_DE: /de_DE/marken
   methods: [GET]
   defaults:
-    _controller: ecolos_sylius_brand_plugin_admin_brand.controller.brand:indexAction
+    _controller: ecolos_sylius_brand_plugin.controller.brand:indexAction
     _sylius:
-      template: "Brand/index.html.twig"
+      template: "@EcolosSyliusBrandPlugin/Brand/index.html.twig"
       repository:
         method: findAll
 brand_show:
@@ -13,6 +13,6 @@ brand_show:
     de_DE: /de_DE/marken/{slug}
   methods: [GET]
   defaults:
-    _controller: ecolos_sylius_brand_plugin_admin_brand.controller.brand:showAction
+    _controller: ecolos_sylius_brand_plugin.controller.brand:showAction
     _sylius:
-      template: "Brand/show.html.twig"
+      template: "@EcolosSyliusBrandPlugin/Brand/show.html.twig"

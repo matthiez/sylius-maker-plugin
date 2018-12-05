@@ -11,7 +11,7 @@ sylius_grid:
           label: sylius.ui.name
         slug:
           type: string
-          label: ecolos_sylius_brand_plugin.ui.slug
+          label: ecolos_sylius_brand_plugin.slug
         description:
           type: string
           label: sylius.ui.description

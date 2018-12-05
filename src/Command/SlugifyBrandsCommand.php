@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ecolos\SyliusBrandPlugin\Command;
 
-//use App\Service\SlugifyBrands;
+use Ecolos\SyliusBrandPlugin\Service\SlugifyBrands;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -16,7 +18,7 @@ class SlugifyBrandsCommand extends ContainerAwareCommand
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): void {
-//        /** @var SlugifyBrands $slugifyBrands */
+        /** @var SlugifyBrands $slugifyBrands */
         $slugifyBrands = $this->getContainer()->get('Ecolos\SyliusBrandPlugin\Service\SlugifyBrands');
 
         $output->writeln(var_dump($slugifyBrands->slugify()));
