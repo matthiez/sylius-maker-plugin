@@ -11,7 +11,7 @@
 
             <div class="four wide column">
                 <div class="ui center aligned segment">
-                    <a href="{{ path('brand_show', { slug: brand.getSlug() }) }}">{{ brand.getName() }}</a>
+                    <a href="{{ path('ecolos_sylius_brand_plugin_show', { slug: brand.slug }) }}">{{ brand.name }}</a>
                 </div>
             </div>
         {% endfor %}
