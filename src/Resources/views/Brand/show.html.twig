@@ -8,23 +8,19 @@
 {% block content %}
     <h1>{{ brand.name }} ({{ 'ecolos_sylius_brand_plugin.brand' | trans }})</h1>
 
-    {% set description = brand.getDescription() %}
-
-    {% if description is not null %}
+    {% if brand.description is not null %}
         <h2>{{ 'sylius.ui.description' | trans }}</h2>
 
         <div class="ui grid mt-1">
-            {{ brand.getDescription() | raw }}
+            {{ brand.description | raw }}
         </div>
     {% endif %}
 
-    {% set address = brand.getAddress() %}
-
-    {% if address is not null %}
+    {% if brand.address is not null %}
         <h2>{{ 'sylius.ui.address' | trans }}</h2>
 
         <div class="ui grid mt-1">
-            {{ brand.getAddress() | raw }}
+            {{ brand.address | raw }}
         </div>
     {% endif %}
 {% endblock %}

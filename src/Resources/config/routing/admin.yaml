@@ -7,8 +7,8 @@ ecolos_sylius_brand_plugin_admin_brand:
     grid: ecolos_sylius_brand_plugin_admin_brand
     vars:
         all:
-            templates:
-                form: Brand\_form.html.twig
+          templates:
+            form: EcolosSyliusBrandPlugin:Brand:_form.html.twig
         index:
             icon: 'file image outline'
   type: sylius.resource

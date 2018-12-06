@@ -9,3 +9,7 @@ sylius_resource:
         classes:
           model: Ecolos\SyliusBrandPlugin\Entity\BrandTranslation
           form: Ecolos\SyliusBrandPlugin\Form\Type\BrandTranslationType
+      ecolos_sylius_brand_plugin.brand_image:
+        classes:
+          model: Ecolos\SyliusBrandPlugin\Entity\BrandImage
+          form: Ecolos\SyliusBrandPlugin\Form\Type\BrandImageType

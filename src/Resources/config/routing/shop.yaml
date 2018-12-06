@@ -8,6 +8,7 @@ ecolos_sylius_brand_plugin_list:
       template: "@EcolosSyliusBrandPlugin/Brand/index.html.twig"
       repository:
         method: findAll
+
 ecolos_sylius_brand_plugin_show:
   path:
     de_DE: /marken/{slug}

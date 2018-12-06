@@ -4,7 +4,6 @@ namespace Ecolos\SyliusBrandPlugin\Grid\Filter;
 
 use Sylius\Component\Grid\Data\DataSourceInterface;
 use Sylius\Component\Grid\Filtering\FilterInterface;
-use Sylius\Component\Grid\Parameters;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 class BrandFilter implements FilterInterface
@@ -21,8 +20,6 @@ class BrandFilter implements FilterInterface
 
             $brands = [];
             foreach ($data['brands'] as $brand)  $brands[] = $brand;
-
-            $dataSource->getData(new Parameters([""]));
 
             // Your filtering logic. DataSource is kind of query builder. $data['stats'] contains the submitted value!
             $dataSource->restrict(

@@ -1,2 +1,31 @@
-imports:
-  - { resource: "@EcolosSyliusBrandPlugin/Resources/config/grids/admin.yaml" }
+sylius_grid:
+  grids:
+    ecolos_sylius_brand_plugin_admin_brand:
+      driver:
+        name: doctrine/orm
+        options:
+          class: Ecolos\SyliusBrandPlugin\Entity\Brand
+      fields:
+        name:
+          type: string
+          label: sylius.ui.name
+        slug:
+          type: string
+          label: ecolos_sylius_brand_plugin.slug
+        description:
+          type: string
+          label: sylius.ui.description
+          sortable: translation.description
+        address:
+          type: string
+          label: sylius.ui.address
+          sortable: translation.address
+      actions:
+        main:
+          create:
+            type: create
+        item:
+          update:
+            type: update
+          delete:
+            type: delete

@@ -1,0 +1,12 @@
+Ecolos\SyliusBrandPlugin\Entity\BrandImage:
+  type: entity
+  table: ecolos_brand_image
+  manyToOne:
+    owner:
+      targetEntity: Ecolos\SyliusBrandPlugin\Entity\Brand
+      inversedBy: images
+      joinColumn:
+        name: owner_id
+        referencedColumnName: id
+        nullable: false
+        onDelete: CASCADE

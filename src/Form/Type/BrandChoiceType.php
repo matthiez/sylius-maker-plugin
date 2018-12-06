@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ecolos\SyliusBrandPlugin\Form\Type;
 
 use Ecolos\SyliusBrandPlugin\Entity\BrandInterface;
-use Ecolos\SyliusBrandPlugin\Repository\BrandRepository;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
@@ -21,9 +20,9 @@ final class BrandChoiceType extends AbstractType
     private $brandRepository;
 
     /**
-     * @param BrandRepository $brandRepository
+     * @param RepositoryInterface $brandRepository
      */
-    public function __construct(BrandRepository $brandRepository) {
+    public function __construct(RepositoryInterface $brandRepository) {
         $this->brandRepository = $brandRepository;
     }
 
@@ -34,16 +33,14 @@ final class BrandChoiceType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults([
-            'choices' => function (): array {
-                return array_reduce(
-                    $this->brandRepository->findBy([], ['name' => 'ASC']),
-                    function ($arr, $brand) {
-                        /** @var BrandInterface $brand */
-                        $arr[$brand->getName()] = $brand;
+            'choices' => array_reduce(
+                $this->brandRepository->findBy([], ['name' => 'ASC']),
+                function ($arr, $brand) {
+                    /** @var BrandInterface $brand */
+                    $arr[$brand->getName()] = $brand;
 
-                        return $arr;
-                    }, []);
-            },
+                    return $arr;
+                }, []),
         ]);
     }
 

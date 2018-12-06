@@ -10,5 +10,12 @@ Ecolos\SyliusBrandPlugin\Entity\Brand:
     slug:
       type: string
       nullable: true
+  oneToMany:
+    images:
+      targetEntity: Ecolos\SyliusBrandPlugin\Entity\BrandImage
+      mappedBy: owner
+      orphanRemoval: true
+      cascade:
+        - all
   table: ecolos_brand_brand
-  type: entity #mappedSuperclass
+  type: entity

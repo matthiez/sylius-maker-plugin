@@ -3,11 +3,15 @@ declare(strict_types=1);
 
 namespace Ecolos\SyliusBrandPlugin\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
+use Sylius\Component\Core\Model\ImagesAwareInterface;
 
-class Brand implements ResourceInterface, TranslatableInterface, BrandInterface
+class Brand implements ResourceInterface, TranslatableInterface, BrandInterface, ImagesAwareInterface
 {
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
@@ -15,22 +19,31 @@ class Brand implements ResourceInterface, TranslatableInterface, BrandInterface
 
     public function __construct() {
         $this->initializeTranslationsCollection();
+
+        $this->images = new ArrayCollection();
+
+        $this->addImage(new BrandImage());
     }
 
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
+
+    /**
+     * @var Collection|ImageInterface[]
+     */
+    protected $images;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $slug;
+    protected $slug;
 
     public function getId(): ?int {
         return $this->id;
@@ -66,6 +79,54 @@ class Brand implements ResourceInterface, TranslatableInterface, BrandInterface
 
     public function getAddress(): ?string {
         return $this->getTranslation()->getAddress();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getImages(): Collection {
+        return $this->images;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getImagesByType(string $type): Collection {
+        return $this->images->filter(function (ImageInterface $image) use ($type) {
+            return $type === $image->getType();
+        });
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasImages(): bool {
+        return !$this->images->isEmpty();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasImage(ImageInterface $image): bool {
+        return $this->images->contains($image);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addImage(ImageInterface $image): void {
+        $image->setOwner($this);
+        $this->images->add($image);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeImage(ImageInterface $image): void {
+        if ($this->hasImage($image)) {
+            $image->setOwner(null);
+            $this->images->removeElement($image);
+        }
     }
 
     /**
