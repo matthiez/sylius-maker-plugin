@@ -1,15 +1,15 @@
 sylius_resource:
   resources:
-    ecolos_sylius_brand_plugin.brand:
+    ecolos_sylius_maker_plugin.maker:
       driver: doctrine/orm
       classes:
-        model: Ecolos\SyliusBrandPlugin\Entity\Brand
-        form: Ecolos\SyliusBrandPlugin\Form\Type\BrandType
+        model: Ecolos\SyliusMakerPlugin\Entity\Maker
+        form: Ecolos\SyliusMakerPlugin\Form\Type\MakerType
       translation:
         classes:
-          model: Ecolos\SyliusBrandPlugin\Entity\BrandTranslation
-          form: Ecolos\SyliusBrandPlugin\Form\Type\BrandTranslationType
-    ecolos_sylius_brand_plugin.brand_image:
+          model: Ecolos\SyliusMakerPlugin\Entity\MakerTranslation
+          form: Ecolos\SyliusMakerPlugin\Form\Type\MakerTranslationType
+    ecolos_sylius_maker_plugin.maker_image:
       classes:
-        model: Ecolos\SyliusBrandPlugin\Entity\BrandImage
-        form: Ecolos\SyliusBrandPlugin\Form\Type\BrandImageType
+        model: Ecolos\SyliusMakerPlugin\Entity\MakerImage
+        form: Ecolos\SyliusMakerPlugin\Form\Type\MakerImageType

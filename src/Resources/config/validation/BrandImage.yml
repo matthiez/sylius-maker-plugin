@@ -1,4 +1,4 @@
-Ecolos\SyliusBrandPlugin\Entity\BrandImage:
+Ecolos\SyliusMakerPlugin\Entity\MakerImage:
   properties:
     file:
       - Image:

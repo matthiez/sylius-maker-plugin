@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Entity;
+namespace Ecolos\SyliusMakerPlugin\Entity;
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-class BrandTranslation extends AbstractTranslation implements ResourceInterface
+class MakerTranslation extends AbstractTranslation implements ResourceInterface
 {
     /**
      * @var integer

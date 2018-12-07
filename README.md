@@ -1,3 +1,5 @@
+#INSTALLATION:
+
 1. modify composer.json:
             {
                 "repositories": [
@@ -7,7 +9,7 @@
                     }
                 ],
                 "require": {
-                    "ecolos/sylius-brand-plugin": "dev-master"
+                    "ecolos/sylius-maker-plugin": "dev-master"
                 }
             }
 
@@ -19,13 +21,18 @@
 
 4. add to config/bundles.php
         [
-            Ecolos\SyliusBrandPlugin\EcolosSyliusBrandPlugin::class => ['all' => true]
+            Ecolos\SyliusMakerPlugin\EcolosSyliusMakerPlugin::class => ['all' => true]
             Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true]
         ]
 
 5. run php bin/console cache:clear
 
 6. run php bin/console doctrine:migrations:diff
+
+#TOOLS:
+
+- Command ecolos:slugify_makers
+    - Creates a slug from entity.name
 
 
 

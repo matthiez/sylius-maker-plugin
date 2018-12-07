@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Entity;
+namespace Ecolos\SyliusMakerPlugin\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,7 +11,7 @@ use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Sylius\Component\Core\Model\ImagesAwareInterface;
 
-class Brand implements ResourceInterface, TranslatableInterface, BrandInterface, ImagesAwareInterface
+class Maker implements ResourceInterface, TranslatableInterface, MakerInterface, ImagesAwareInterface
 {
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
@@ -130,7 +130,7 @@ class Brand implements ResourceInterface, TranslatableInterface, BrandInterface,
     /**
      * {@inheritdoc}
      */
-    protected function createTranslation(): BrandTranslation {
-        return new BrandTranslation();
+    protected function createTranslation(): MakerTranslation {
+        return new MakerTranslation();
     }
 }

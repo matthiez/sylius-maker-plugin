@@ -1,9 +1,9 @@
-ecolos_sylius_brand_plugin:
-  brand: Hersteller
-  brands: Hersteller
-  select_brand: Hersteller auswählen
+ecolos_sylius_maker_plugin:
+  maker: Hersteller
+  makers: Hersteller
+  select_maker: Hersteller auswählen
   slug: Slug
   ui:
-    brands: Hersteller
-    new_brand: Neuer Hersteller
-    edit_brand: Hersteller bearbeiten
+    makers: Hersteller
+    new_maker: Neuer Hersteller
+    edit_maker: Hersteller bearbeiten

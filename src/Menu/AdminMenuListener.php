@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecolos\SyliusBrandPlugin\Menu;
+namespace Ecolos\SyliusMakerPlugin\Menu;
 
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
@@ -15,8 +15,8 @@ final class AdminMenuListener
         $menu
             ->getChild('catalog')
             ->addChild('new-subitem')
-            ->setLabel('Brands')
+            ->setLabel('Makers')
             ->setLabelAttribute('icon', 'registered')
-            ->setUri('/admin/brands');
+            ->setUri('/admin/makers');
     }
 }

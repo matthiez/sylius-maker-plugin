@@ -1,19 +1,19 @@
-ecolos_sylius_brand_plugin_list:
+ecolos_sylius_maker_plugin_list:
   path:
     de_DE: /marken
   methods: [GET]
   defaults:
-    _controller: ecolos_sylius_brand_plugin.controller.brand:indexAction
+    _controller: ecolos_sylius_maker_plugin.controller.maker:indexAction
     _sylius:
-      template: "@EcolosSyliusBrandPlugin/Brand/index.html.twig"
+      template: "@EcolosSyliusMakerPlugin/Maker/index.html.twig"
       repository:
         method: findAll
 
-ecolos_sylius_brand_plugin_show:
+ecolos_sylius_maker_plugin_show:
   path:
     de_DE: /marken/{slug}
   methods: [GET]
   defaults:
-    _controller: ecolos_sylius_brand_plugin.controller.brand:showAction
+    _controller: ecolos_sylius_maker_plugin.controller.maker:showAction
     _sylius:
-      template: "@EcolosSyliusBrandPlugin/Brand/show.html.twig"
+      template: "@EcolosSyliusMakerPlugin/Maker/show.html.twig"

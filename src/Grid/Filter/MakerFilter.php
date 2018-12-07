@@ -1,31 +1,31 @@
 <?php
 
-namespace Ecolos\SyliusBrandPlugin\Grid\Filter;
+namespace Ecolos\SyliusMakerPlugin\Grid\Filter;
 
 use Sylius\Component\Grid\Data\DataSourceInterface;
 use Sylius\Component\Grid\Filtering\FilterInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
-class BrandFilter implements FilterInterface
+class MakerFilter implements FilterInterface
 {
-    private $brandRepository;
+    private $makerRepository;
 
-    public function __construct(RepositoryInterface $brandRepository) {
-        $this->brandRepository = $brandRepository;
+    public function __construct(RepositoryInterface $makerRepository) {
+        $this->makerRepository = $makerRepository;
     }
 
     public function apply(DataSourceInterface $dataSource, $name, $data, array $options = []): void {
-        if (isset($data['brands'])) {
-            if (!is_array($data['brands'])) $data['brands'] = [$data['brands']];
+        if (isset($data['makers'])) {
+            if (!is_array($data['makers'])) $data['makers'] = [$data['makers']];
 
-            $brands = [];
-            foreach ($data['brands'] as $brand)  $brands[] = $brand;
+            $makers = [];
+            foreach ($data['makers'] as $maker)  $makers[] = $maker;
 
             // Your filtering logic. DataSource is kind of query builder. $data['stats'] contains the submitted value!
             $dataSource->restrict(
                 $dataSource->
                 getExpressionBuilder()
-                    ->in("brand", $brands)
+                    ->in("maker", $makers)
             );
         }
     }

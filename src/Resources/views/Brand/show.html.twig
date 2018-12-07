@@ -1,38 +1,38 @@
 {% extends '@SyliusShop/layout.html.twig' %}
 
-{% block title %}{{ brand.name }} ({{ 'ecolos_sylius_brand_plugin.brand' | trans }}){% endblock %}
+{% block title %}{{ maker.name }} ({{ 'ecolos_sylius_maker_plugin.maker' | trans }}){% endblock %}
 
 {% block metatags %}
 {% endblock %}
 
 {% block content %}
-    <h1>{{ brand.name }} ({{ 'ecolos_sylius_brand_plugin.brand' | trans }})</h1>
+    <h1>{{ maker.name }} ({{ 'ecolos_sylius_maker_plugin.maker' | trans }})</h1>
 
     <div class="ui grid">
         <div class="eight wide column">
-            {% if brand.description is not null %}
+            {% if maker.description is not null %}
                 <h2>{{ 'sylius.ui.description' | trans }}</h2>
 
                 <div class="ui grid mt-1">
-                    {{ brand.description | raw }}
+                    {{ maker.description | raw }}
                 </div>
             {% endif %}
 
-            {% if brand.address is not null %}
+            {% if maker.address is not null %}
                 <h2>{{ 'sylius.ui.address' | trans }}</h2>
 
                 <div class="ui grid mt-1">
-                    {{ brand.address | raw }}
+                    {{ maker.address | raw }}
                 </div>
             {% endif %}
         </div>
 
         <div class="eight wide column">
-            {% if brand.images.count %}
-                <img class="ui image centered middle aligned" src="{{ asset('media/image/' ~ brand.images
-                    .first().path) }}" alt="{{ brand.name }}"/>
+            {% if maker.images.count %}
+                <img class="ui image centered middle aligned" src="{{ asset('media/image/' ~ maker.images
+                    .first().path) }}" alt="{{ maker.name }}"/>
             {% else %}
-                {{ brand.name }}
+                {{ maker.name }}
             {% endif %}
         </div>
     </div>
