@@ -5,7 +5,7 @@
                 "repositories": [
                     {
                         "type": "vcs",
-                        "url":  "git@github.com:arivelox/sylius-maker-plugin.git"
+                        "url":  "git@github.com:ECOLOS-DE/sylius-maker-plugin.git"
                     }
                 ],
                 "require": {
