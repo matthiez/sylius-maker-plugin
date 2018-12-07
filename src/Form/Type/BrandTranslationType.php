@@ -15,8 +15,12 @@ class BrandTranslationType extends AbstractResourceType
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('address', TextareaType::class)
-            ->add('description', TextareaType::class)
+            ->add('address', TextareaType::class, [
+                'required' => false
+            ])
+            ->add('description', TextareaType::class, [
+                'required' => false
+            ])
         ;
     }
 

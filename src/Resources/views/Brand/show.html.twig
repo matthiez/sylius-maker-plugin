@@ -8,19 +8,32 @@
 {% block content %}
     <h1>{{ brand.name }} ({{ 'ecolos_sylius_brand_plugin.brand' | trans }})</h1>
 
-    {% if brand.description is not null %}
-        <h2>{{ 'sylius.ui.description' | trans }}</h2>
+    <div class="ui grid">
+        <div class="eight wide column">
+            {% if brand.description is not null %}
+                <h2>{{ 'sylius.ui.description' | trans }}</h2>
 
-        <div class="ui grid mt-1">
-            {{ brand.description | raw }}
+                <div class="ui grid mt-1">
+                    {{ brand.description | raw }}
+                </div>
+            {% endif %}
+
+            {% if brand.address is not null %}
+                <h2>{{ 'sylius.ui.address' | trans }}</h2>
+
+                <div class="ui grid mt-1">
+                    {{ brand.address | raw }}
+                </div>
+            {% endif %}
         </div>
-    {% endif %}
 
-    {% if brand.address is not null %}
-        <h2>{{ 'sylius.ui.address' | trans }}</h2>
-
-        <div class="ui grid mt-1">
-            {{ brand.address | raw }}
+        <div class="eight wide column">
+            {% if brand.images.count %}
+                <img class="ui image centered middle aligned" src="{{ asset('media/image/' ~ brand.images
+                    .first().path) }}" alt="{{ brand.name }}"/>
+            {% else %}
+                {{ brand.name }}
+            {% endif %}
         </div>
-    {% endif %}
+    </div>
 {% endblock %}

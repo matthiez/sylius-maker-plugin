@@ -48,8 +48,7 @@ services:
 
   ecolos_sylius_brand_plugin.form.type.brand_filter:
     class: Ecolos\SyliusBrandPlugin\Form\Type\Filter\BrandFilterType
-    arguments:
-      - "@ecolos_sylius_brand_plugin.repository.brand"
+    arguments: ["@sylius.context.channel.request_based", "@ecolos_sylius_brand_plugin.repository.brand"]
     tags:
       - { name: form.type , alias: ecolos_sylius_brand_plugin_brand}
 
@@ -65,10 +64,19 @@ services:
       - name: sylius.grid_filter
         type: brands
         form_type: Ecolos\SyliusBrandPlugin\Form\Type\Filter\BrandFilterType
-    arguments:
-      - "@ecolos_sylius_brand_plugin.repository.brand"
+    arguments: ["@ecolos_sylius_brand_plugin.repository.brand"]
 
   ecolos_sylius_brand_plugin.listener.admin.menu_builder:
     class: Ecolos\SyliusBrandPlugin\Menu\AdminMenuListener
     tags:
       - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
+  ecolos_sylius_brand_plugin.listener.images_upload:
+    class: Sylius\Bundle\CoreBundle\EventListener\ImagesUploadListener
+    parent: sylius.listener.images_upload
+    autowire: true
+    autoconfigure: false
+    public: false
+    tags:
+      - { name: kernel.event_listener, event: ecolos_sylius_brand_plugin.brand.pre_create, method: uploadImages }
+      - { name: kernel.event_listener, event: ecolos_sylius_brand_plugin.brand.pre_update, method: uploadImages }

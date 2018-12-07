@@ -9,18 +9,30 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Sylius\Component\Channel\Context\RequestBased\ChannelContext;
+use Sylius\Component\Channel\Context\RequestBased\CompositeRequestResolver;
+use Sylius\Component\Core\Context\ShopperContext;
 
 class BrandFilterType extends AbstractType
 {
     /**
      * @var RepositoryInterface
      */
-    private $brandRepository;
+    protected $brandRepository;
+
 
     /**
+     * @var ChannelContext
+     */
+    protected $channelContext;
+
+    /**
+     * @param ChannelContext $channelContext
      * @param RepositoryInterface $brandRepository
      */
-    public function __construct(RepositoryInterface $brandRepository) {
+    public function __construct(ChannelContext $channelContext, RepositoryInterface $brandRepository) {
+        $this->channelContext = $channelContext;
         $this->brandRepository = $brandRepository;
     }
 

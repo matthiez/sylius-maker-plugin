@@ -27,7 +27,7 @@ final class ProductTypeExtension extends AbstractTypeExtension
         $builder
             ->add('brand', BrandChoiceType::class, [
                 'placeholder' => 'ecolos_sylius_brand_plugin.select_brand',
-                'label' => 'ecolos_sylius_brand_plugin.brand',
+                'label' => 'ecolos_sylius_brand_plugin.brand'
             ]);
     }
 }

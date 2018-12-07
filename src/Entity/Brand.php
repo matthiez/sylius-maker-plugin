@@ -21,8 +21,6 @@ class Brand implements ResourceInterface, TranslatableInterface, BrandInterface,
         $this->initializeTranslationsCollection();
 
         $this->images = new ArrayCollection();
-
-        $this->addImage(new BrandImage());
     }
 
     /**
