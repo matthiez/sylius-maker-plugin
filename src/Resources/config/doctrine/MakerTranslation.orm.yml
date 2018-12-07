@@ -1,4 +1,4 @@
-Ecolos\SyliusBrandPlugin\Entity\BrandTranslation:
+Ecolos\SyliusMakerPlugin\Entity\MakerTranslation:
   fields:
     address:
       nullable: true
@@ -11,5 +11,5 @@ Ecolos\SyliusBrandPlugin\Entity\BrandTranslation:
       type: integer
       generator:
         strategy: AUTO
-  table: ecolos_brand_translation
+  table: ecolos_maker_translation
   type: entity

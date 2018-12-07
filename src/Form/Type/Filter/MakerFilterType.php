@@ -1,26 +1,22 @@
 <?php
 
-namespace Ecolos\SyliusBrandPlugin\Form\Type\Filter;
+namespace Ecolos\SyliusMakerPlugin\Form\Type\Filter;
 
-use Ecolos\SyliusBrandPlugin\Entity\BrandInterface;
+use Ecolos\SyliusMakerPlugin\Entity\MakerInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Sylius\Component\Channel\Context\RequestBased\ChannelContext;
-use Sylius\Component\Channel\Context\RequestBased\CompositeRequestResolver;
-use Sylius\Component\Core\Context\ShopperContext;
 
-class BrandFilterType extends AbstractType
+class MakerFilterType extends AbstractType
 {
     /**
      * @var RepositoryInterface
      */
-    protected $brandRepository;
-
+    protected $makerRepository;
 
     /**
      * @var ChannelContext
@@ -29,25 +25,25 @@ class BrandFilterType extends AbstractType
 
     /**
      * @param ChannelContext $channelContext
-     * @param RepositoryInterface $brandRepository
+     * @param RepositoryInterface $makerRepository
      */
-    public function __construct(ChannelContext $channelContext, RepositoryInterface $brandRepository) {
+    public function __construct(ChannelContext $channelContext, RepositoryInterface $makerRepository) {
         $this->channelContext = $channelContext;
-        $this->brandRepository = $brandRepository;
+        $this->makerRepository = $makerRepository;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->addModelTransformer(new CollectionToArrayTransformer());
 
         $builder->add(
-            'brands',
+            'makers',
             ChoiceType::class,
             [
                 'choices' => array_reduce(
-                    $this->brandRepository->findBy([], ['name' => 'ASC']),
-                    function ($arr, $brand) {
-                        /** @var BrandInterface $brand */
-                        $arr[$brand->getName()] = $brand->getId();
+                    $this->makerRepository->findBy([], ['name' => 'ASC']),
+                    function ($arr, $maker) {
+                        /** @var MakerInterface $maker */
+                        $arr[$maker->getName()] = $maker->getId();
 
                         return $arr;
                     }, []),
@@ -60,12 +56,12 @@ class BrandFilterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver) {
         $resolver
             ->setDefaults([
-                'brands' => [],
+                'makers' => [],
             ])
-            ->setAllowedTypes('brands', ['array']);
+            ->setAllowedTypes('makers', ['array']);
     }
 
     public function getBlockPrefix(): string {
-        return 'ecolos_sylius_brand_plugin_brands_filter';
+        return 'ecolos_sylius_maker_plugin_makers_filter';
     }
 }

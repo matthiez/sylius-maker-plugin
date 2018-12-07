@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Controller;
+namespace Ecolos\SyliusMakerPlugin\Controller;
 
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 
-class BrandController extends ResourceController
+class MakerController extends ResourceController
 {
 }

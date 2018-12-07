@@ -1,14 +1,14 @@
-ecolos_sylius_brand_plugin_admin_brand:
+ecolos_sylius_maker_plugin_admin_maker:
   resource: |
-    alias: ecolos_sylius_brand_plugin.brand
+    alias: ecolos_sylius_maker_plugin.maker
     section: admin
     templates: SyliusAdminBundle:Crud
     redirect: update
-    grid: ecolos_sylius_brand_plugin_admin_brand
+    grid: ecolos_sylius_maker_plugin_admin_maker
     vars:
         all:
           templates:
-            form: EcolosSyliusBrandPlugin:Brand:_form.html.twig
+            form: EcolosSyliusMakerPlugin:Maker:_form.html.twig
         index:
             icon: 'file image outline'
   type: sylius.resource

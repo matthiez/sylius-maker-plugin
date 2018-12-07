@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Entity;
+namespace Ecolos\SyliusMakerPlugin\Entity;
 
-interface BrandInterface
+interface MakerInterface
 {
     public function getId(): ?int;
 

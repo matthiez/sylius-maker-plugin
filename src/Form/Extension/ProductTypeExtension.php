@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Form\Extension;
+namespace Ecolos\SyliusMakerPlugin\Form\Extension;
 
-use Ecolos\SyliusBrandPlugin\Form\Type\BrandChoiceType;
+use Ecolos\SyliusMakerPlugin\Form\Type\MakerChoiceType;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,9 +25,9 @@ final class ProductTypeExtension extends AbstractTypeExtension
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('brand', BrandChoiceType::class, [
-                'placeholder' => 'ecolos_sylius_brand_plugin.select_brand',
-                'label' => 'ecolos_sylius_brand_plugin.brand'
+            ->add('maker', MakerChoiceType::class, [
+                'placeholder' => 'ecolos_sylius_maker_plugin.select_maker',
+                'label' => 'ecolos_sylius_maker_plugin.maker'
             ]);
     }
 }

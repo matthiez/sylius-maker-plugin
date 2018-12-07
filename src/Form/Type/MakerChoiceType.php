@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Form\Type;
+namespace Ecolos\SyliusMakerPlugin\Form\Type;
 
-use Ecolos\SyliusBrandPlugin\Entity\BrandInterface;
+use Ecolos\SyliusMakerPlugin\Entity\MakerInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
@@ -12,18 +12,18 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class BrandChoiceType extends AbstractType
+final class MakerChoiceType extends AbstractType
 {
     /**
      * @var RepositoryInterface
      */
-    private $brandRepository;
+    private $makerRepository;
 
     /**
-     * @param RepositoryInterface $brandRepository
+     * @param RepositoryInterface $makerRepository
      */
-    public function __construct(RepositoryInterface $brandRepository) {
-        $this->brandRepository = $brandRepository;
+    public function __construct(RepositoryInterface $makerRepository) {
+        $this->makerRepository = $makerRepository;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void {
@@ -34,10 +34,10 @@ final class BrandChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults([
             'choices' => array_reduce(
-                $this->brandRepository->findBy([], ['name' => 'ASC']),
-                function ($arr, $brand) {
-                    /** @var BrandInterface $brand */
-                    $arr[$brand->getName()] = $brand;
+                $this->makerRepository->findBy([], ['name' => 'ASC']),
+                function ($arr, $maker) {
+                    /** @var MakerInterface $maker */
+                    $arr[$maker->getName()] = $maker;
 
                     return $arr;
                 }, []),
@@ -49,6 +49,6 @@ final class BrandChoiceType extends AbstractType
     }
 
     public function getBlockPrefix(): string {
-        return 'ecolos_sylius_brand_plugin_brand_choice';
+        return 'ecolos_sylius_maker_plugin_maker_choice';
     }
 }

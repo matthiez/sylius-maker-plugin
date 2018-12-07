@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Entity;
+namespace Ecolos\SyliusMakerPlugin\Entity;
 
 use Sylius\Component\Core\Model\Image;
 
-class BrandImage extends Image
+class MakerImage extends Image
 {
 }

@@ -1,9 +1,9 @@
-Ecolos\SyliusBrandPlugin\Entity\BrandImage:
+Ecolos\SyliusMakerPlugin\Entity\MakerImage:
   type: entity
-  table: ecolos_brand_image
+  table: ecolos_maker_image
   manyToOne:
     owner:
-      targetEntity: Ecolos\SyliusBrandPlugin\Entity\Brand
+      targetEntity: Ecolos\SyliusMakerPlugin\Entity\Maker
       inversedBy: images
       joinColumn:
         name: owner_id

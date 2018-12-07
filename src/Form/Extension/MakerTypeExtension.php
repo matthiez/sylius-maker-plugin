@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Form\Extension;
+namespace Ecolos\SyliusMakerPlugin\Form\Extension;
 
-use Ecolos\SyliusBrandPlugin\Form\Type\BrandImageType;
-use Ecolos\SyliusBrandPlugin\Form\Type\BrandType;
+use Ecolos\SyliusMakerPlugin\Form\Type\MakerImageType;
+use Ecolos\SyliusMakerPlugin\Form\Type\MakerType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-final class BrandTypeExtension extends AbstractTypeExtension
+final class MakerTypeExtension extends AbstractTypeExtension
 {
     /**
      * @inheritdoc
      */
     public static function getExtendedTypes(): iterable
     {
-        return [BrandType::class]; //BrandImageType BrandType BrandChoiceType
+        return [MakerType::class];
     }
 
     /**
@@ -26,7 +26,7 @@ final class BrandTypeExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('images', CollectionType::class, [
-            'entry_type' => BrandImageType::class,
+            'entry_type' => MakerImageType::class,
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false,
@@ -39,7 +39,7 @@ final class BrandTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType(): string
     {
-        return BrandType::class; //BrandImageType BrandType BrandChoiceType
+        return MakerType::class;
     }
 
 }

@@ -1,8 +1,8 @@
 {
-  "name": "ecolos/sylius-brand-plugin",
+  "name": "ecolos/sylius-maker-plugin",
   "type": "sylius-plugin",
-  "description": "Brand management for Sylius applications.",
-  "keywords": ["shop", "ecommerce", "address", "brand", "maker"],
+  "description": "Maker management for Sylius applications.",
+  "keywords": ["shop", "ecommerce", "maker", "eu", "law"],
   "homepage": "http://sylius.com",
   "license": "MIT",
   "authors": [
@@ -39,7 +39,7 @@
     "sensiolabs/security-checker": "^4.1"
   },
   "autoload": {
-    "psr-4": { "Ecolos\\SyliusBrandPlugin\\": "src/" }
+    "psr-4": { "Ecolos\\SyliusMakerPlugin\\": "src/" }
   },
   "prefer-stable": true
 }

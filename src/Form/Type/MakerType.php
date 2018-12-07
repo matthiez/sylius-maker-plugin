@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ecolos\SyliusBrandPlugin\Form\Type;
+namespace Ecolos\SyliusMakerPlugin\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class BrandType extends AbstractResourceType
+class MakerType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class BrandType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('translations', ResourceTranslationsType::class, [
-                'entry_type' => BrandTranslationType::class,
+                'entry_type' => MakerTranslationType::class,
             ])
             ->add('name', TextType::class)
             ->add('slug', TextType::class, [
@@ -35,6 +35,6 @@ class BrandType extends AbstractResourceType
      * {@inheritdoc}
      */
     public function getBlockPrefix() {
-        return 'ecolos_sylius_brand_plugin_brand';
+        return 'ecolos_sylius_maker_plugin_maker';
     }
 }

@@ -4,19 +4,19 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ 'ecolos_sylius_brand_plugin.brands' | trans }}</h1>
+    <h1>{{ 'ecolos_sylius_maker_plugin.makers' | trans }}</h1>
 
     <div class="ui grid mt-1">
-        {% for brand in brands %}
+        {% for maker in makers %}
 
             <div class="center aligned four wide column">
-                <a href="{{ path('ecolos_sylius_brand_plugin_show', { slug: brand.slug }) }}">
+                <a href="{{ path('ecolos_sylius_maker_plugin_show', { slug: maker.slug }) }}">
                     <div class="ui segment" style="height: 175px;">
-                        {% if brand.images.count %}
-                            <img class="ui small image centered middle aligned" src="{{ asset('media/image/' ~ brand.images
-                                .first().path) }}" alt="{{ brand.name }}"/>
+                        {% if maker.images.count %}
+                            <img class="ui small image centered middle aligned" src="{{ asset('media/image/' ~ maker.images
+                                .first().path) }}" alt="{{ maker.name }}"/>
                         {% else %}
-                            {{ brand.name }}
+                            {{ maker.name }}
                         {% endif %}
                     </div>
                 </a>

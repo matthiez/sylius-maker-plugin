@@ -1,17 +1,17 @@
 sylius_grid:
   grids:
-    ecolos_sylius_brand_plugin_admin_brand:
+    ecolos_sylius_maker_plugin_admin_maker:
       driver:
         name: doctrine/orm
         options:
-          class: Ecolos\SyliusBrandPlugin\Entity\Brand
+          class: Ecolos\SyliusMakerPlugin\Entity\Maker
       fields:
         name:
           type: string
           label: sylius.ui.name
         slug:
           type: string
-          label: ecolos_sylius_brand_plugin.slug
+          label: ecolos_sylius_maker_plugin.slug
         description:
           type: string
           label: sylius.ui.description
