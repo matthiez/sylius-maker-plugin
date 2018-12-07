@@ -29,8 +29,30 @@
 
 6. run php bin/console doctrine:migrations:diff
 
-#TOOLS:
+7. edit config/packages/doctrine.yml
+    doctrine:
+        orm:
+            mappings:
+                EcolosSyliusMakerPlugin:
+                    is_bundle: true
+                    type: yml
+                    dir: '/Resources/config/doctrine'
+                    
+8. edit src/Entity/Product.php
+    <?php
+    declare(strict_types=1);
+    namespace App\Entity;
+    use Ecolos\SyliusMakerPlugin\Entity\MakerTrait;
+    use Sylius\Component\Core\Model\Product as BaseProduct;
+    class Product extends BaseProduct { use MakerTrait; }
 
+
+#USAGE:
+     <a href="{{ path('ecolos_sylius_maker_plugin_list') }}">
+     {{ 'ecolos_sylius_maker_plugin.makers'|trans }}
+     </a> or visit /brands
+
+#TOOLS:
 - Command ecolos:slugify_makers
     - Creates a slug from entity.name
 
