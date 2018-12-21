@@ -1,0 +1,13 @@
+<a class='item active' data-tab='details'>
+    <h2>{{ 'sylius.ui.description'|trans }}</h2>
+</a>
+
+{% if product.maker is not null %}
+    <a class='item' data-tab='vendor'>
+        <h2>{{ 'ecolos_sylius_maker_plugin.maker'|trans }}</h2>
+    </a>
+{% endif %}
+
+<a class='item' data-tab='reviews'>
+    <h2>{{ 'sylius.ui.reviews'|trans }}</h2>
+</a>
