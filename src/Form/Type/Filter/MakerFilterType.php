@@ -48,7 +48,8 @@ class MakerFilterType extends AbstractType
                         return $arr;
                     }, []),
                 "multiple" => true,
-                "label" => false
+                "label" => false,
+                "translation_domain" => "ecolos_sylius_maker_plugin"
             ]
         );
     }

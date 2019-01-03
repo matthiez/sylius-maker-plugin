@@ -19,9 +19,8 @@ class MakerFilter implements FilterInterface
             if (!is_array($data['makers'])) $data['makers'] = [$data['makers']];
 
             $makers = [];
-            foreach ($data['makers'] as $maker)  $makers[] = $maker;
+            foreach ($data['makers'] as $maker) $makers[] = $maker;
 
-            // Your filtering logic. DataSource is kind of query builder. $data['stats'] contains the submitted value!
             $dataSource->restrict(
                 $dataSource->
                 getExpressionBuilder()
