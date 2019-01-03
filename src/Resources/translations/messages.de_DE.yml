@@ -4,6 +4,7 @@ ecolos_sylius_maker_plugin:
   select_maker: Hersteller auswählen
   slug: Slug
   ui:
+    maker: Hersteller
     makers: Hersteller
     new_maker: Neuer Hersteller
     edit_maker: Hersteller bearbeiten
