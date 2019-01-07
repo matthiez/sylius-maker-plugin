@@ -46,11 +46,7 @@ final class MakerController
         $maker = $this->makerRepository->findOneBy(["slug" => $slug]);
 
         $products = $this->productRepository->findBy(["maker" => $maker->getId()]);
-        
-/*        $products["_taxons"] = array_map(function(ProductInterface $product) {
-            return $product->getMainTaxon();
-        }, $products);*/
-        
+
         return $this->templatingEngine->renderResponse(
             '@EcolosSyliusMakerPlugin/Maker/show.html.twig',
             [
