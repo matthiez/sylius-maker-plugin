@@ -6,6 +6,12 @@ services:
   Ecolos\SyliusMakerPlugin\Repository\MakerRepository:
     tags: ['doctrine.repository_service']
 
+  Ecolos\SyliusMakerPlugin\Controller\MakerController:
+    class: Ecolos\SyliusMakerPlugin\Controller\MakerController
+    arguments: ['@templating', "@ecolos_sylius_maker_plugin.repository.maker", "@sylius.repository.product"]
+    tags: ['controller.service_arguments']
+
+
   Ecolos\SyliusMakerPlugin\Repository\MakerTranslationRepository:
     tags: ['doctrine.repository_service']
 

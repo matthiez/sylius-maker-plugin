@@ -14,6 +14,6 @@ ecolos_sylius_maker_plugin_show:
     de_DE: /marken/{slug}
   methods: [GET]
   defaults:
-    _controller: ecolos_sylius_maker_plugin.controller.maker:showAction
+    _controller: EcolosSyliusMakerPlugin:Maker:show
     _sylius:
       template: "@EcolosSyliusMakerPlugin/Maker/show.html.twig"

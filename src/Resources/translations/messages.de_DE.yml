@@ -5,6 +5,7 @@ ecolos_sylius_maker_plugin:
   makers: Hersteller
   select_maker: Hersteller auswählen
   slug: Slug
+  from: von
   ui:
     maker: Hersteller
     makers: Hersteller

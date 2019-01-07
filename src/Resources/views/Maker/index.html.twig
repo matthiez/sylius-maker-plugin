@@ -7,8 +7,7 @@
     <h1>{{ 'ecolos_sylius_maker_plugin.makers' | trans }}</h1>
 
     <div class="ui grid mt-1">
-        {% for maker in makers %}
-
+        {% for maker in makers if maker.slug | length %}
             <div class="center aligned four wide column">
                 <a href="{{ path('ecolos_sylius_maker_plugin_show', { slug: maker.slug }) }}">
                     <div class="ui segment" style="height: 175px;">

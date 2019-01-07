@@ -5,11 +5,20 @@
 {% block metatags %}
 {% endblock %}
 
+{% set hasImage = maker.images.count != 0 %}
+
+{% set taxons = [] %}
+{% for product in products %}
+    {% if product.mainTaxon not in taxons %}
+        {% set taxons = taxons|merge([product.mainTaxon]) %}
+    {% endif %}
+{% endfor %}
+
 {% block content %}
     <h1>{{ maker.name }} ({{ 'ecolos_sylius_maker_plugin.maker' | trans }})</h1>
 
-    <div class="ui grid">
-        <div class="eight wide column">
+    <div class="ui stackable grid">
+        <div class="{{ hasImage ? "eight" : "sixteen" }} wide column">
             {% if maker.description is not null %}
                 <h2>{{ 'sylius.ui.description' | trans }}</h2>
 
@@ -27,13 +36,39 @@
             {% endif %}
         </div>
 
-        <div class="eight wide column">
-            {% if maker.images.count %}
+        {% if hasImage %}
+            <div class="eight wide column">
                 <img class="ui image centered middle aligned" src="{{ asset('media/image/' ~ maker.images
                     .first().path) }}" alt="{{ maker.name }}"/>
-            {% else %}
-                {{ maker.name }}
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
+
+        <h3 class="sixteen wide column">{{ "sylius.ui.products" | trans }} {{ "ecolos_sylius_maker_plugin.from" | trans }} {{ maker.name }}</h3>
+
+        {% for taxon in taxons %}
+            <h4>{{ taxon.name }}</h4>
+
+            <div class="row">
+                <div class="ui four stackable cards">
+                    {% for product in products if product.slug is not null and product.mainTaxon.code == taxon.code and product.mainTaxon.code == taxon.code %}
+                        {% set img = product.images.first() %}
+
+                        {% if img != false %}
+                            {% set imgPath = img.path | length ? asset('media/image/' ~ img.path) : '//placehold.it/400x300' %}
+
+                            <a class="ui fluid centered raised card"
+                               href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+                               title="{{ product.name }}">
+                                <div class="ui slide masked reveal image">
+                                    <img class="ui small image" src="{{ imgPath }}"/>
+                                </div>
+                                <div class="center aligned header">{{ product.name }}</div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% endfor %}
     </div>
 {% endblock %}
