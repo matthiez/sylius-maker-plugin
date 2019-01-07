@@ -23,7 +23,7 @@ final class ProductTypeExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder) {
         $builder
             ->add('maker', MakerChoiceType::class, [
                 'placeholder' => 'ecolos_sylius_maker_plugin.select_maker',

@@ -13,15 +13,14 @@ class MakerTranslationType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder) {
         $builder
             ->add('address', TextareaType::class, [
                 'required' => false
             ])
             ->add('description', TextareaType::class, [
                 'required' => false
-            ])
-        ;
+            ]);
     }
 
     /**

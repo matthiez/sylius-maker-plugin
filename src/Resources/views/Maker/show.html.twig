@@ -60,8 +60,9 @@
                                href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
                                title="{{ product.name }}">
                                 <div class="ui slide masked reveal image">
-                                    <img class="ui small image" src="{{ imgPath }}"/>
+                                    <img class="ui small image" src="{{ imgPath }}" alt="{{ product.name }}"/>
                                 </div>
+
                                 <div class="center aligned header">{{ product.name }}</div>
                             </a>
                         {% endif %}

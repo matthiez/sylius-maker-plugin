@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ecolos\SyliusMakerPlugin\Controller;
 
 use Ecolos\SyliusMakerPlugin\Entity\MakerInterface;
-use Ecolos\SyliusMakerPlugin\Repository\MakerRepositoryInterface;
 use Sylius\Bundle\CoreBundle\Doctrine\ORM\ProductRepository;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
@@ -23,6 +22,16 @@ final class MakerController
      * @var EngineInterface
      */
     private $templatingEngine;
+
+    /**
+     * @var EntityRepository
+     */
+    private $makerRepository;
+
+    /**
+     * @var ProductRepositoryInterface
+     */
+    private $productRepository;
 
     /**
      * @param EngineInterface $templatingEngine

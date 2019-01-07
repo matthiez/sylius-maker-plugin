@@ -15,7 +15,7 @@ class MakerType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder) {
         $builder
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => MakerTranslationType::class,
@@ -27,8 +27,7 @@ class MakerType extends AbstractResourceType
             ])
             ->add('images', VichImageType::class, [
                 'label' => 'sylius.form.product.images'
-            ])
-        ;
+            ]);
     }
 
     /**

@@ -2,12 +2,12 @@
     {{ sonata_block_render_event('sylius.shop.product.show.tab_vendor', {'product': product}) }}
 
     {% if product.maker is not null %}
-        {% set address = product.maker.address%}
+        {% set address = product.maker.address %}
 
         {#To fulfill EU-laws we must show the manufacturers full name and a summonable address#}
         {% if address|length %}
-            {{ address | raw  }}
-        {#If we don't have this info yet we will fallback to at least show the manufacturers name#}
+            {{ address | raw }}
+            {#If we don't have this info yet we will fallback to at least show the manufacturers name#}
         {% else %}
             {{ product.maker.name }}
         {% endif %}
