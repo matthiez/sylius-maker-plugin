@@ -15,7 +15,7 @@ class MakerType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder) {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => MakerTranslationType::class,

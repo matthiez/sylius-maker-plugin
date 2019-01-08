@@ -22,7 +22,7 @@ final class MakerTypeExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder): void {
+    public function buildForm(FormBuilderInterface $builder, array $options): void {
         $builder->add('images', CollectionType::class, [
             'entry_type' => MakerImageType::class,
             'allow_add' => true,

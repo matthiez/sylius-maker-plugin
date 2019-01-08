@@ -14,7 +14,7 @@ class MakerFilter implements FilterInterface
         $this->makerRepository = $makerRepository;
     }
 
-    public function apply(DataSourceInterface $dataSource, $name, $data): void {
+    public function apply(DataSourceInterface $dataSource, $name, $data, array $options = []): void {
         if (isset($data['makers'])) {
             if (!is_array($data['makers'])) $data['makers'] = [$data['makers']];
 

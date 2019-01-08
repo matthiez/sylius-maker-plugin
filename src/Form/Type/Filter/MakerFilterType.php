@@ -32,7 +32,7 @@ class MakerFilterType extends AbstractType
         $this->makerRepository = $makerRepository;
     }
 
-    public function buildForm(FormBuilderInterface $builder) {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->addModelTransformer(new CollectionToArrayTransformer());
 
         $builder->add(
