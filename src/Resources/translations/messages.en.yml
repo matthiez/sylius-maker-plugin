@@ -1,0 +1,13 @@
+Makers: Makers
+
+ecolos_sylius_maker_plugin:
+  maker: Maker
+  makers: Makers
+  select_maker: Choose maker
+  slug: Slug
+  from: of
+  ui:
+    maker: Maker
+    makers: Makers
+    new_maker: New Maker
+    edit_maker: Edit Maker
