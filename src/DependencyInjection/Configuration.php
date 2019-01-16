@@ -12,7 +12,9 @@ final class Configuration implements ConfigurationInterface
      * {@inheritdoc}
      */
     public function getConfigTreeBuilder(): TreeBuilder {
-        $treeBuilder = new TreeBuilder('ecolos_sylius_maker_plugin');
+        $treeBuilder = new TreeBuilder();
+
+        $rootNode = $treeBuilder->root('ecolos_sylius_maker_plugin');
 
         return $treeBuilder;
     }
