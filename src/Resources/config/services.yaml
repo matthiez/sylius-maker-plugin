@@ -54,7 +54,7 @@ services:
 
   ecolos_sylius_maker_plugin.form.type.maker_filter:
     class: Ecolos\SyliusMakerPlugin\Form\Type\Filter\MakerFilterType
-    arguments: ["@sylius.context.channel.request_based", "@ecolos_sylius_maker_plugin.repository.maker"]
+    arguments: ["@sylius.context.channel.request_based", "@sylius.repository.taxon", "@request_stack", "@sylius.repository.product_taxon"]
     tags:
       - { name: form.type , alias: ecolos_sylius_maker_plugin_maker}
 
