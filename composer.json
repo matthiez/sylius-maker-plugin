@@ -3,7 +3,6 @@
   "type": "sylius-plugin",
   "description": "Maker management for Sylius applications.",
   "keywords": ["shop", "ecommerce", "maker", "eu", "law"],
-  "homepage": "http://sylius.com",
   "license": "MIT",
   "authors": [
     {
