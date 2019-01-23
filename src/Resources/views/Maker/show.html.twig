@@ -50,7 +50,9 @@
 
             <div class="row">
                 <div class="ui four stackable cards">
-                    {% for product in products if product.slug is not null and product.mainTaxon.code == taxon.code and product.mainTaxon.code == taxon.code %}
+                    {% for product in products if product.enabled and product.slug is not null and product.mainTaxon
+                        .code == taxon.code and
+                        product.mainTaxon.code == taxon.code %}
                         {% set img = product.images.first() %}
 
                         {% set imgPath = img != false ? img.path | length ? asset('media/image/' ~
