@@ -2,9 +2,6 @@
 
 {% block title %}{{ maker.name }} ({{ 'ecolos_sylius_maker_plugin.maker' | trans }}){% endblock %}
 
-{% block metatags %}
-{% endblock %}
-
 {% set hasImage = maker.images.count != 0 %}
 
 {% set taxons = [] %}
