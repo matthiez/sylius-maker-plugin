@@ -5,13 +5,8 @@ declare(strict_types=1);
 namespace Ecolos\SyliusMakerPlugin\Controller;
 
 use Ecolos\SyliusMakerPlugin\Entity\MakerInterface;
-use Sylius\Bundle\CoreBundle\Doctrine\ORM\ProductRepository;
-use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
-use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
-use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
@@ -34,7 +29,10 @@ final class MakerController
     private $productRepository;
 
     /**
+     * MakerController constructor.
      * @param EngineInterface $templatingEngine
+     * @param EntityRepository $makerRepository
+     * @param ProductRepositoryInterface $productRepository
      */
     public function __construct(EngineInterface $templatingEngine, EntityRepository $makerRepository, ProductRepositoryInterface $productRepository) {
         $this->templatingEngine = $templatingEngine;

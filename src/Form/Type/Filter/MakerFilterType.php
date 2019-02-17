@@ -2,14 +2,11 @@
 
 namespace Ecolos\SyliusMakerPlugin\Form\Type\Filter;
 
-use App\Entity\Product;
 use Doctrine\ORM\EntityManager;
 use Ecolos\SyliusMakerPlugin\Entity\MakerInterface;
-use Sylius\Component\Core\Model\ProductInterface;
+use Ecolos\SyliusMakerPlugin\Entity\ProductInterface;
 use Sylius\Component\Core\Model\ProductTaxon;
-use Sylius\Component\Core\Model\TaxonInterface;
 use Sylius\Component\Core\Repository\ProductTaxonRepositoryInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
@@ -42,8 +39,11 @@ class MakerFilterType extends AbstractType
     protected $productTaxonRepository;
 
     /**
+     * MakerFilterType constructor.
      * @param ChannelContext $channelContext
-     * @param RepositoryInterface $makerRepository
+     * @param TaxonRepositoryInterface $taxonRepository
+     * @param RequestStack $request
+     * @param ProductTaxonRepositoryInterface $productTaxonRepository
      */
     public function __construct(
         ChannelContext $channelContext,
@@ -57,16 +57,23 @@ class MakerFilterType extends AbstractType
         $this->productTaxonRepository = $productTaxonRepository;
     }
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $taxon = $this->taxonRepository->findOneBySlug(
             $this->request->getCurrentRequest()->attributes->get("slug"),
             $this->request->getCurrentRequest()->attributes->get("_locale"));
 
         $makers = [];
-        foreach (array_map(function (ProductTaxon $productTaxon) {
+        $products = array_map(function (ProductTaxon $productTaxon) {
             return $productTaxon->getProduct();
-        }, $this->productTaxonRepository->findBy(['taxon' => $taxon->getId()])) as $product) {
-            /** @var Product $product */
+        }, $this->productTaxonRepository->findBy(['taxon' => $taxon->getId()]));
+        foreach ($products as $product) {
+            /** @var ProductInterface $product */
+            if (!$product->isEnabled()) continue;
+
             $maker = $product->getMaker();
 
             if (isset($maker)) $makers[] = $maker;
@@ -97,6 +104,9 @@ class MakerFilterType extends AbstractType
         );
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver
             ->setDefaults([
@@ -105,6 +115,9 @@ class MakerFilterType extends AbstractType
             ->setAllowedTypes('makers', ['array']);
     }
 
+    /**
+     * @return string
+     */
     public function getBlockPrefix(): string {
         return 'ecolos_sylius_maker_plugin_makers_filter';
     }

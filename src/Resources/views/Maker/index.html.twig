@@ -1,5 +1,8 @@
 {% extends '@SyliusShop/layout.html.twig' %}
 
+{% block metatags %}
+{% endblock %}
+
 {% block content %}
     <h1>{{ 'ecolos_sylius_maker_plugin.makers' | trans }}</h1>
 
@@ -9,8 +12,9 @@
                 <a href="{{ path('ecolos_sylius_maker_plugin_show', { slug: maker.slug }) }}">
                     <div class="ui segment" style="height: 175px;">
                         {% if maker.images.count %}
-                            <img class="ui small image centered middle aligned" src="{{ asset('media/image/' ~ maker.images
-                                .first().path) }}" alt="{{ maker.name }}"/>
+                            <img class="ui small image centered middle aligned"
+                                 src="{{ asset('media/image/' ~ maker.images
+                                     .first().path) }}" alt="{{ maker.name }}"/>
                         {% else %}
                             {{ maker.name }}
                         {% endif %}

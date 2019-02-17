@@ -2,6 +2,9 @@
 
 {% block title %}{{ maker.name }} ({{ 'ecolos_sylius_maker_plugin.maker' | trans }}){% endblock %}
 
+{% block metatags %}
+{% endblock %}
+
 {% set hasImage = maker.images.count != 0 %}
 
 {% set taxons = [] %}
@@ -35,8 +38,9 @@
 
         {% if hasImage %}
             <div class="eight wide column">
-                <img class="ui image centered middle aligned" src="{{ asset('media/image/' ~ maker.images
-                    .first().path) }}" alt="{{ maker.name }}"/>
+                <img class="ui image centered middle aligned"
+                     src="{{ asset('media/image/' ~ maker.images.first().path) }}"
+                     alt="{{ maker.name }}"/>
             </div>
         {% endif %}
 
@@ -59,7 +63,8 @@
                            href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
                            title="{{ product.name }}">
                             <div class="ui slide masked reveal image">
-                                <img class="ui small image" src="{{ imgPath }}" alt="{{ product.name }}"/>
+                                <img class="ui small image" src="{{ imgPath }}"
+                                     alt="{{ product.name }}"/>
                             </div>
 
                             <div class="center aligned header">{{ product.name }}</div>

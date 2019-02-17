@@ -47,7 +47,7 @@ class SlugifyMakers
                         $maker->setSlug((new SlugGenerator)->generate($maker->getName()));
 
                         if (!$this->makerManager->isOpen()) {
-                            throw new \Exception('MakerManager nicht bereit.');
+                            throw new \Exception('MakerManager is not ready.');
 
                             break;
                         }
@@ -56,7 +56,7 @@ class SlugifyMakers
 
                         if (($i % self::BATCH_SIZE) === 0) $this->makerManager->flush();
 
-                        $this->messages[] = 'Slug' . $maker->getSlug() . ' erstellt.';
+                        $this->messages[] = 'Slug' . $maker->getSlug() . ' created.';
                     }
                 }
                 catch (\Exception $ex) {
