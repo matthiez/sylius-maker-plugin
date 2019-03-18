@@ -11,12 +11,12 @@
             <div class="center aligned four wide column">
                 <a href="{{ path('ecolos_sylius_maker_plugin_show', { slug: maker.slug }) }}">
                     <div class="ui segment" style="height: 175px;">
+                        {{ maker.name }}
+
                         {% if maker.images.count %}
                             <img class="ui small image centered middle aligned"
                                  src="{{ asset('media/image/' ~ maker.images
                                      .first().path) }}" alt="{{ maker.name }}"/>
-                        {% else %}
-                            {{ maker.name }}
                         {% endif %}
                     </div>
                 </a>
