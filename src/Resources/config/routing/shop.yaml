@@ -1,6 +1,6 @@
 ecolos_sylius_maker_plugin_list:
   path:
-    de_DE: /marken
+    de: /marken
   methods: [GET]
   defaults:
     _controller: ecolos_sylius_maker_plugin.controller.maker:indexAction
@@ -11,7 +11,7 @@ ecolos_sylius_maker_plugin_list:
 
 ecolos_sylius_maker_plugin_show:
   path:
-    de_DE: /marken/{slug}
+    de: /marken/{slug}
   methods: [GET]
   defaults:
     _controller: EcolosSyliusMakerPlugin:Maker:show

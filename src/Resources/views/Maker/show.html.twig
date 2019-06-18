@@ -44,34 +44,57 @@
             </div>
         {% endif %}
 
-        <h3 class="sixteen wide column">{{ "sylius.ui.products" | trans }} {{ "ecolos_sylius_maker_plugin.from" | trans }} {{ maker.name }}</h3>
-
+        {% set productCount = 0 %}
         {% for taxon in taxons %}
-            <h4>{{ taxon.name }}</h4>
-
-            <div class="row">
-                <div class="ui four stackable cards">
-                    {% for product in products if product.enabled and product.slug is not null and product.mainTaxon
-                        .code == taxon.code and
-                        product.mainTaxon.code == taxon.code %}
-                        {% set img = product.images.first() %}
-
-                        {% set imgPath = img != false ? img.path | length ? asset('media/image/' ~
-                            img.path) : '//placehold.it/400x300' : '//placehold.it/400x300' %}
-
-                        <a class="ui fluid centered raised card"
-                           href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
-                           title="{{ product.name }}">
-                            <div class="ui slide masked reveal image">
-                                <img class="ui small image" src="{{ imgPath }}"
-                                     alt="{{ product.name }}"/>
-                            </div>
-
-                            <div class="center aligned header">{{ product.name }}</div>
-                        </a>
-                    {% endfor %}
-                </div>
-            </div>
+            {% for product in products
+                if product.enabled
+                and product.slug is not null
+                and product.mainTaxon.code == taxon.code %}
+                {% set productCount = productCount + 1 %}
+            {% endfor %}
         {% endfor %}
+
+        {% if productCount %}
+            <h3 class="sixteen wide column">
+                {{ "sylius.ui.products" | trans }} {{ "ecolos_sylius_maker_plugin.from" | trans }} {{ maker.name }}
+            </h3>
+
+            {% for taxon in taxons %}
+                {% set _products = [] %}
+                {% for product in products
+                    if product.enabled
+                    and product.slug is not null
+                    and product.mainTaxon.code == taxon.code %}
+
+                    {% set _products = _products|merge([product]) %}
+                {% endfor %}
+
+                {% if _products|length %}
+                    <h4>{{ taxon.name }}</h4>
+
+                    <div class="row">
+                        <div class="ui four stackable cards">
+                            {% for product in _products %}
+                                {% set img = product.images.first() %}
+
+                                {% set imgPath = img != false ? img.path | length ? asset('media/image/' ~
+                                    img.path) : '//placehold.it/400x300' : '//placehold.it/400x300' %}
+
+                                <a class="ui fluid centered raised card"
+                                   href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+                                   title="{{ product.name }}">
+                                    <div class="ui slide masked reveal image">
+                                        <img class="ui small image" src="{{ imgPath }}"
+                                             alt="{{ product.name }}"/>
+                                    </div>
+
+                                    <div class="center aligned header">{{ product.name }}</div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
