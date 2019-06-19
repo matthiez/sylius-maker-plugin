@@ -15,14 +15,16 @@ final class MakerTypeExtension extends AbstractTypeExtension
     /**
      * @inheritdoc
      */
-    public static function getExtendedTypes(): iterable {
+    public static function getExtendedTypes(): iterable
+    {
         return [MakerType::class];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void {
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
         $builder->add('images', CollectionType::class, [
             'entry_type' => MakerImageType::class,
             'allow_add' => true,
@@ -35,7 +37,8 @@ final class MakerTypeExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function getExtendedType(): string {
+    public function getExtendedType(): string
+    {
         return MakerType::class;
     }
 

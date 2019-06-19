@@ -13,7 +13,8 @@ class MakerTranslationType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $builder
             ->add('address', TextareaType::class, [
                 'required' => false
@@ -26,7 +27,8 @@ class MakerTranslationType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix() {
+    public function getBlockPrefix()
+    {
         return 'ecolos_sylius_maker_plugin_maker_translation';
     }
 }

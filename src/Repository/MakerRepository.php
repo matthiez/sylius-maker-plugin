@@ -16,7 +16,8 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class MakerRepository extends ServiceEntityRepository implements MakerRepositoryInterface
 {
-    public function __construct(RegistryInterface $registry) {
+    public function __construct(RegistryInterface $registry)
+    {
         parent::__construct($registry, Maker::class);
     }
 }

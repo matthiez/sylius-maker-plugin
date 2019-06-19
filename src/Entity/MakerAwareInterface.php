@@ -9,6 +9,7 @@ interface MakerAwareInterface
      * @return MakerInterface|null
      */
     public function getMaker(): ?MakerInterface;
+
     /**
      * @param MakerInterface|null $maker
      */

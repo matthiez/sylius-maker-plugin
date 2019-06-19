@@ -9,7 +9,8 @@ final class AdminMenuListener
     /**
      * @param MenuBuilderEvent $event
      */
-    public function addAdminMenuItems(MenuBuilderEvent $event): void {
+    public function addAdminMenuItems(MenuBuilderEvent $event): void
+    {
         $menu = $event->getMenu();
 
         $menu

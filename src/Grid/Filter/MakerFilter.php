@@ -10,11 +10,13 @@ class MakerFilter implements FilterInterface
 {
     private $makerRepository;
 
-    public function __construct(RepositoryInterface $makerRepository) {
+    public function __construct(RepositoryInterface $makerRepository)
+    {
         $this->makerRepository = $makerRepository;
     }
 
-    public function apply(DataSourceInterface $dataSource, $name, $data, array $options = []): void {
+    public function apply(DataSourceInterface $dataSource, $name, $data, array $options = []): void
+    {
         if (isset($data['makers'])) {
             if (!is_array($data['makers'])) $data['makers'] = [$data['makers']];
 

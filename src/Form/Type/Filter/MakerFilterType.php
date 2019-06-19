@@ -50,7 +50,8 @@ class MakerFilterType extends AbstractType
         TaxonRepositoryInterface $taxonRepository,
         RequestStack $request,
         ProductTaxonRepositoryInterface $productTaxonRepository
-    ) {
+    )
+    {
         $this->channelContext = $channelContext;
         $this->taxonRepository = $taxonRepository;
         $this->request = $request;
@@ -61,7 +62,8 @@ class MakerFilterType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $taxon = $this->taxonRepository->findOneBySlug(
             $this->request->getCurrentRequest()->attributes->get("slug"),
             $this->request->getCurrentRequest()->attributes->get("_locale"));
@@ -107,7 +109,8 @@ class MakerFilterType extends AbstractType
     /**
      * @param OptionsResolver $resolver
      */
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver
             ->setDefaults([
                 'makers' => [],
@@ -118,7 +121,8 @@ class MakerFilterType extends AbstractType
     /**
      * @return string
      */
-    public function getBlockPrefix(): string {
+    public function getBlockPrefix(): string
+    {
         return 'ecolos_sylius_maker_plugin_makers_filter';
     }
 }

@@ -11,7 +11,8 @@ final class MakerImageType extends ImageType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix(): string {
+    public function getBlockPrefix(): string
+    {
         return 'ecolos_sylius_maker_plugin_maker_image';
     }
 }

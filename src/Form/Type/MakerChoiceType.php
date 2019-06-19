@@ -22,16 +22,19 @@ final class MakerChoiceType extends AbstractType
     /**
      * @param RepositoryInterface $makerRepository
      */
-    public function __construct(RepositoryInterface $makerRepository) {
+    public function __construct(RepositoryInterface $makerRepository)
+    {
         $this->makerRepository = $makerRepository;
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options): void {
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
         if ($options['multiple'])
             $builder->addModelTransformer(new CollectionToArrayTransformer());
     }
 
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults([
             'choices' => array_reduce(
                 $this->makerRepository->findBy([], ['name' => 'ASC']),
@@ -44,11 +47,13 @@ final class MakerChoiceType extends AbstractType
         ]);
     }
 
-    public function getParent(): string {
+    public function getParent(): string
+    {
         return ChoiceType::class;
     }
 
-    public function getBlockPrefix(): string {
+    public function getBlockPrefix(): string
+    {
         return 'ecolos_sylius_maker_plugin_maker_choice';
     }
 }

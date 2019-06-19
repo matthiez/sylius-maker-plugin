@@ -11,7 +11,8 @@ final class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder(): TreeBuilder {
+    public function getConfigTreeBuilder(): TreeBuilder
+    {
         return new TreeBuilder('ecolos_sylius_maker_plugin');
     }
 }

@@ -15,7 +15,8 @@ class MakerType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $builder
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => MakerTranslationType::class,
@@ -33,7 +34,8 @@ class MakerType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix() {
+    public function getBlockPrefix()
+    {
         return 'ecolos_sylius_maker_plugin_maker';
     }
 }

@@ -34,7 +34,8 @@ final class MakerController
      * @param EntityRepository $makerRepository
      * @param ProductRepositoryInterface $productRepository
      */
-    public function __construct(EngineInterface $templatingEngine, EntityRepository $makerRepository, ProductRepositoryInterface $productRepository) {
+    public function __construct(EngineInterface $templatingEngine, EntityRepository $makerRepository, ProductRepositoryInterface $productRepository)
+    {
         $this->templatingEngine = $templatingEngine;
         $this->makerRepository = $makerRepository;
         $this->productRepository = $productRepository;
@@ -44,7 +45,8 @@ final class MakerController
      * @param Request $request
      * @return Response
      */
-    public function showAction(Request $request): Response {
+    public function showAction(Request $request): Response
+    {
         $slug = $request->attributes->get("slug");
 
         /**

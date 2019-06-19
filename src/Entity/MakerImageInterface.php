@@ -6,4 +6,6 @@ namespace Ecolos\SyliusMakerPlugin\Entity;
 
 use Sylius\Component\Core\Model\ImageInterface;
 
-interface MakerImageInterface extends ImageInterface, MakerAwareInterface {}
+interface MakerImageInterface extends ImageInterface, MakerAwareInterface
+{
+}
