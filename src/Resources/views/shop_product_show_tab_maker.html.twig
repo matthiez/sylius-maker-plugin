@@ -1,3 +1,5 @@
+{% set product = product is defined ? product : settings.product %}
+
 <div class="ui bottom attached tab segment" data-tab="vendor">
     {{ sonata_block_render_event('sylius.shop.product.show.tab_vendor', {'product': product}) }}
 
@@ -7,6 +9,7 @@
         {#To fulfill EU-laws we must show the manufacturers full name and a summonable address#}
         {% if address|length %}
             {{ address | raw }}
+
             {#If we don't have this info yet we will fallback to at least show the manufacturers name#}
         {% else %}
             {{ product.maker.name }}

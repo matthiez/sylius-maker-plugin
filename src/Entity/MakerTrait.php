@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Ecolos\SyliusMakerPlugin\Entity;
 
 use Doctrine\ORM\Mapping\OneToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
 
 trait MakerTrait
 {
