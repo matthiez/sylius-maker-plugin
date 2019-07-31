@@ -6,7 +6,7 @@
                 "repositories": [
                     {
                         "type": "vcs",
-                        "url":  "git@github.com:ECOLOS-DE/sylius-maker-plugin.git"
+                        "url":  "git@bitbucket.org:ecolos/sylius-maker-plugin.git"
                     }
                 ]
             }
