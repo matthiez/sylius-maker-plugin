@@ -1,5 +1,11 @@
 sylius_grid:
   grids:
+    sylius_shop_product:
+      filters:
+        makers:
+          type: makers
+          template: '@EcolosSyliusMakerPlugin/Grid/Filter/maker.html.twig'
+
     ecolos_sylius_maker_plugin_admin_maker:
       driver:
         name: doctrine/orm

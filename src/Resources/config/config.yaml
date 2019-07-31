@@ -1,4 +1,3 @@
 imports:
   - { resource: "@EcolosSyliusMakerPlugin/Resources/config/resources.yaml" }
-  - { resource: "@EcolosSyliusMakerPlugin/Resources/config/grids.yaml" }
   - { resource: "@EcolosSyliusMakerPlugin/Resources/config/services.yaml" }

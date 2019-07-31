@@ -2,7 +2,6 @@ sylius_resource:
   resources:
     ecolos_sylius_maker_plugin.maker:
       driver: doctrine/orm
-      #      controller: Ecolos\SyliusMakerPlugin\Controller\MakerController
       classes:
         model: Ecolos\SyliusMakerPlugin\Entity\Maker
         form: Ecolos\SyliusMakerPlugin\Form\Type\MakerType
