@@ -1,5 +1,4 @@
 <?php
-
 namespace Ecolos\SyliusMakerPlugin\Menu;
 
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;

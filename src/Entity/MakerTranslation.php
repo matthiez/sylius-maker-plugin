@@ -11,14 +11,6 @@ use Doctrine\ORM\Mapping\Table;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-/*
-  id:
-    id:
-      type: integer
-      generator:
-        strategy: AUTO
- * */
-
 /**
  * @Entity
  * @Table(name="ecolos_maker_translation")

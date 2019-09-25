@@ -8,11 +8,19 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 final class Configuration implements ConfigurationInterface
 {
+    private const TREE_BUILDER_NAME = "ecolos_sylius_maker_plugin";
+
     /**
      * {@inheritdoc}
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        return new TreeBuilder('ecolos_sylius_maker_plugin');
+        $treeBuilder = new TreeBuilder(self::TREE_BUILDER_NAME);
+
+        $rootNode = method_exists(TreeBuilder::class, 'getRootNode')
+            ? $treeBuilder->getRootNode()
+            : $treeBuilder->root(self::TREE_BUILDER_NAME);
+
+        return $treeBuilder;
     }
 }
