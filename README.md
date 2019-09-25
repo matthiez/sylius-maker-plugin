@@ -82,7 +82,7 @@
 ```html
 <a href="{{ path('ecolos_sylius_maker_plugin_list') }}">{{ 'ecolos_sylius_maker_plugin.makers'|trans }}</a>
 ``` 
-... or simply visit /brands (for "en" locale - use /marken for "de" locale)
+... or simply visit /makers (for "en" locale - use /marken for "de" locale)
 
 # TOOLS:
     - Command ecolos:slugify_makers
