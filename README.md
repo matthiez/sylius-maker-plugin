@@ -88,5 +88,6 @@
     - Command ecolos:slugify_makers
         Creates a slug from entity.name
 
-
+# TODO
+    - Add tests
 

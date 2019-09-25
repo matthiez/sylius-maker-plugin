@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecolos\SyliusMakerPlugin\Grid\Filter;
 
 use Sylius\Component\Grid\Data\DataSourceInterface;
